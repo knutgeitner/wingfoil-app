@@ -1,0 +1,20 @@
+{
+    "name": "WingfoilApp Rügen",
+    "short_name": "WingfoilApp",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#0a4d68",
+    "icons": [
+        {
+            "src": "icon-192_wfa.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icon-512_wfa.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
