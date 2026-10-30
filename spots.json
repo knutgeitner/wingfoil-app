@@ -1,0 +1,65 @@
+[
+    {
+        "name": "Martinshafen",
+        "gewaesser": "Großer Jasmunder Bodden",
+        "breitengrad": 54.527,
+        "laengengrad": 13.504,
+        "blickrichtung": 270,
+        "bildX": 60.5,
+        "bildY": 36.7
+    },
+    {
+        "name": "Prora",
+        "gewaesser": "Ostsee, Prorer Wiek",
+        "breitengrad": 54.459,
+        "laengengrad": 13.572,
+        "blickrichtung": 70,
+        "bildX": 68.8,
+        "bildY": 50.5   
+    },
+    {
+        "name": "Glowe",
+        "gewaesser": "Ostsee, Tromper Wiek",
+        "breitengrad": 54.587,
+        "laengengrad": 13.413,
+        "blickrichtung": 45,
+        "bildX": 49.4,
+        "bildY": 24.5 
+    },
+    {
+        "name": "Dranske",
+        "gewaesser": "Ostsee, Weststrand",
+        "breitengrad": 54.615,
+        "laengengrad": 13.225,
+        "blickrichtung": 270,
+        "bildX": 26.5,
+        "bildY": 18.8
+    },
+    {
+        "name": "Kreptitz",
+        "gewaesser": "Ostsee, Nordküste Wittow",
+        "breitengrad": 54.663,
+        "laengengrad": 13.257,
+        "blickrichtung": 325,
+        "bildX": 30.4,
+        "bildY": 9.0
+    },
+    {
+        "name": "Thiessow",
+        "gewaesser": "Greifswalder Bodden, Westseite",
+        "breitengrad": 54.276,
+        "laengengrad": 13.698,
+        "blickrichtung": 230,
+        "bildX": 84.2,
+        "bildY": 87.7
+    },
+    {
+        "name": "Neuendorf",
+        "gewaesser": "Rügischer Bodden",
+        "breitengrad": 54.333,
+        "laengengrad": 13.486,
+        "blickrichtung": 150,
+        "bildX": 58.3,
+        "bildY": 76.1
+    }
+]
