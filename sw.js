@@ -1,4 +1,4 @@
-const CACHE_NAME = "wingfoil-v2";
+const CACHE_NAME = "wingfoil-v3";
 
 const DATEIEN = [
     "./",
@@ -7,9 +7,10 @@ const DATEIEN = [
     "./manifest.json",
     "./ruegen.png",
     "./app.js",
+    "./bewertung.js",
+    "./spots.json",
     "./icon-192_wfa.png",
-    "./icon-512_wfa.png",
-    "./spots.json"
+    "./icon-512_wfa.png"
 ];
 
 self.addEventListener("install", (ereignis) => {

@@ -24,11 +24,21 @@ async function ladeSpots() {
 
     spots.forEach((spot, nummer) => {
         const aktuell = wetterDaten[nummer].current;
-        console.log(spot.name,
-            "Wind:", aktuell.wind_speed_10m, "kn",
-            "Böen:", aktuell.wind_gusts_10m, "kn",
-            "Richtung:", aktuell.wind_direction_10m, "°",
-            "Wettercode:", aktuell.weather_code);
+        
+        const bewertung = new Bewertung(
+            spot.blickrichtung,
+            aktuell.wind_speed_10m,
+            aktuell.wind_gusts_10m,
+            aktuell.wind_direction_10m,
+            aktuell.weather_code
+        );
+        const ergebnis = bewertung.bewerten();
+
+        document.getElementById("kaertchen").innerHTML +=
+            "<p><b>" + spot.name + "</b>: " + ergebnis.farbe
+            + " - " + ergebnis.gruende.join(", ")
+            + "<br>Wind " + aktuell.wind_speed_10m + " kn, Böen "
+            + aktuell.wind_gusts_10m + " kn, aus " + aktuell.wind_direction_10m + "°</p>";
     });
 
     const zeitpunkt = new Date(wetterDaten[0].current.time);
