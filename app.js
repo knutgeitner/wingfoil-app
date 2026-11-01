@@ -24,6 +24,8 @@ async function ladeSpots() {
 
     const zeichen = { gruen: "✓", gelb: "▲", rot: "✕"};
     const woerter = { gruen: "Grün", gelb: "Gelb", rot: "Rot"};
+    document.getElementById("markierungen").innerHTML = "";
+    document.getElementById("kaertchen").innerHTML = "";
     spots.forEach((spot, nummer) => {
         const aktuell = wetterDaten[nummer].current;
         
@@ -36,7 +38,7 @@ async function ladeSpots() {
         );
         const ergebnis = bewertung.bewerten();
 
-        document.getElementById("karte").innerHTML +=
+        document.getElementById("markierungen").innerHTML +=
             "<span class='symbol " + ergebnis.farbe + "' style='left: " + spot.bildX + "%; top: " + spot.bildY + "%;'>"
             + zeichen[ergebnis.farbe] + "</span>";
         
@@ -45,7 +47,7 @@ async function ladeSpots() {
             seite = " links";
         }    
 
-        document.getElementById("karte").innerHTML +=
+        document.getElementById("markierungen").innerHTML +=
             "<span class='spotname " + ergebnis.farbe + seite + "' style='left: " + spot.bildX + "%; top: " + spot.bildY + "%;'>"
             + spot.name + "</span>";
             
@@ -75,3 +77,11 @@ async function ladeSpots() {
 } 
 
 ladeSpots();
+
+document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") {
+        ladeSpots();
+    }
+});
+
+setInterval(ladeSpots, 15 * 60 * 1000);  
