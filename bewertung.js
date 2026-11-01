@@ -57,7 +57,7 @@ class Bewertung {
             this.#gruende.push("Seitlicher Wind, man kann abtreiben");
             return "gelb";
         } else {
-            this.#gruende.push("Ablandiger Wind, Gefahr aufs offene Wasser getrieben zu werden");
+            this.#gruende.push("Ablandiger Wind, Abdriftgefahr");
             return "rot";
         }
     }

@@ -22,6 +22,8 @@ async function ladeSpots() {
     const wetterAntwort = await fetch(adresse);
     const wetterDaten = await wetterAntwort.json();
 
+    const zeichen = { gruen: "✓", gelb: "▲", rot: "✕"};
+    const woerter = { gruen: "Grün", gelb: "Gelb", rot: "Rot"};
     spots.forEach((spot, nummer) => {
         const aktuell = wetterDaten[nummer].current;
         
@@ -34,12 +36,32 @@ async function ladeSpots() {
         );
         const ergebnis = bewertung.bewerten();
 
+        document.getElementById("karte").innerHTML +=
+            "<span class='symbol " + ergebnis.farbe + "' style='left: " + spot.bildX + "%; top: " + spot.bildY + "%;'>"
+            + zeichen[ergebnis.farbe] + "</span>";
+        
+        let seite = "";
+        if (spot.bildX > 75) {
+            seite = " links";
+        }    
+
+        document.getElementById("karte").innerHTML +=
+            "<span class='spotname " + ergebnis.farbe + seite + "' style='left: " + spot.bildX + "%; top: " + spot.bildY + "%;'>"
+            + spot.name + "</span>";
+            
         document.getElementById("kaertchen").innerHTML +=
-            "<p><b>" + spot.name + "</b>: " + ergebnis.farbe
-            + " - " + ergebnis.gruende.join(", ")
-            + "<br>Wind " + aktuell.wind_speed_10m + " kn, Böen "
-            + aktuell.wind_gusts_10m + " kn, aus " + aktuell.wind_direction_10m + "°</p>";
-    });
+            "<div class='spot " + ergebnis.farbe + "'>" + "<div class='kopf'>"
+            + "<h2>" + spot.name + "</h2>"
+            + "<span class='ampel " + ergebnis.farbe + "'>" + zeichen[ergebnis.farbe] + " "
+            + woerter[ergebnis.farbe] + "</span>" + "</div>"
+            + "<p class='gewaesser'>" + spot.gewaesser + "</p>" 
+            + "<p class='wind'>Wind " + aktuell.wind_speed_10m + " kn · Böen " + aktuell.wind_gusts_10m + " kn · aus " 
+            + aktuell.wind_direction_10m + "° " 
+            + "<svg class='pfeil' viewBox='0 0 24 24' width='18' height='18' style='transform: rotate("
+            + aktuell.wind_direction_10m + "deg);'>"
+            + "<path d='m12 22 L5 10 H10 V2 H14 V10 H19 Z' fill='#0a4d68'/></svg></p>"
+            + "<p class='gruende'>" + ergebnis.gruende.join(", ") + "</p>"  + "</div>";
+    }); 
 
     const zeitpunkt = new Date(wetterDaten[0].current.time);
     

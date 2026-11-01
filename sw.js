@@ -1,4 +1,4 @@
-const CACHE_NAME = "wingfoil-v3";
+const CACHE_NAME = "wingfoil-v4";
 
 const DATEIEN = [
     "./",
