@@ -25,7 +25,7 @@ class Bewertung {
             this.#gruende.push("Guter Wind");
         } else if (this.#windstaerke < 30) {
             farbe = "gelb";
-            this.#gruende.push("Viel Wind, nur für Erfahrene");
+            this.#gruende.push("Viel Wind - nur für Erfahrene");
         } else {
             farbe = "rot";
             this.#gruende.push("Zu viel Wind");
@@ -54,20 +54,20 @@ class Bewertung {
             this.#gruende.push("Auflandiger Wind");
             return "gruen";
         } else if (abweichung <= 90) {
-            this.#gruende.push("Seitlicher Wind, man kann abtreiben");
+            this.#gruende.push("Seitlicher Wind - Abdrift möglich");
             return "gelb";
         } else {
-            this.#gruende.push("Ablandiger Wind, Abdriftgefahr");
+            this.#gruende.push("Ablandiger Wind - Abdriftgefahr");
             return "rot";
         }
     }
 
     #pruefeWetter() {
         if ([95, 96, 99].includes(this.#wettercode)) {
-            this.#gruende.push("Gewitter, Lebensgefahr auf dem Wasser!");
+            this.#gruende.push("Gewitter - Lebensgefahr!");
             return "rot";
         } else if ([45, 48].includes(this.#wettercode)) {
-            this.#gruende.push("Nebel, eingeschränkte Sicht");
+            this.#gruende.push("Nebel - schlechte Sicht");
             return "gelb";
         } else {
             return "gruen";
@@ -94,6 +94,4 @@ class Bewertung {
 
         return { farbe: farbe, gruende: this.#gruende };
     }
-
-
 }

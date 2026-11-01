@@ -55,12 +55,12 @@ async function ladeSpots() {
             + "<span class='ampel " + ergebnis.farbe + "'>" + zeichen[ergebnis.farbe] + " "
             + woerter[ergebnis.farbe] + "</span>" + "</div>"
             + "<p class='gewaesser'>" + spot.gewaesser + "</p>" 
-            + "<p class='wind'>Wind " + aktuell.wind_speed_10m + " kn · Böen " + aktuell.wind_gusts_10m + " kn · aus " 
+            + "<p class='wind'>Wind " + aktuell.wind_speed_10m.toLocaleString("de-DE") + " kn · Böen " + aktuell.wind_gusts_10m.toLocaleString("de-DE") + " kn · aus " 
             + aktuell.wind_direction_10m + "° " 
             + "<svg class='pfeil' viewBox='0 0 24 24' width='18' height='18' style='transform: rotate("
             + aktuell.wind_direction_10m + "deg);'>"
-            + "<path d='m12 22 L5 10 H10 V2 H14 V10 H19 Z' fill='#0a4d68'/></svg></p>"
-            + "<p class='gruende'>" + ergebnis.gruende.join(", ") + "</p>"  + "</div>";
+            + "<path d='M12 22 L5 10 H10 V2 H14 V10 H19 Z' fill='#0a4d68'/></svg></p>"
+            + "<p class='gruende'>" + ergebnis.gruende.join(" · ") + "</p>"  + "</div>";
     }); 
 
     const zeitpunkt = new Date(wetterDaten[0].current.time);

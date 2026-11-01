@@ -3,25 +3,34 @@ body {
     background: #eef3f6;
     max-width: 500px;
     margin: 0 auto;
-    padding: 0 12px;
+    padding: 0 6px;
 }
 
 header {
     background: #0a4d68;
     color: white;
-    margin: 0 -12px 12 px;
-    padding: 4px 12px;
+    margin: 6px 0;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header p {
+    margin: 4px 0 0;
 }
 
 #karte {
     position: relative;
     max-width: 500px;
-    margin-top: 12px;
 }
 
 #karte img {
     width: 100%;
     display: block;
+    border-radius: 8px;
 }
 
 .symbol {
@@ -61,6 +70,8 @@ header {
     max-width: 500px;
     display: flex;
     flex-direction: column;
+    gap: 6px;
+    padding-top: 6px;
 }
 
 .spot {
@@ -69,7 +80,7 @@ header {
     border-left: 6px solid #ccc;
     border-radius: 8px;
     padding: 8px 12px;
-    margin: 10px 0;
+    margin: 0;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
@@ -93,7 +104,6 @@ header {
 }
 
 .gewaesser {
-    margin: 0;
     color: #666;
     font-size: 13px;
 }
@@ -117,4 +127,20 @@ header {
 .pfeil {
     display: inline-block;
     vertical-align: middle;
+}
+
+@media (max-width: 500px) {
+    header {
+        margin: 0 -6px 6px;
+        border-radius: 0;
+    }
+    
+    #karte {
+        margin-left: -6px;
+        margin-right: -6px;
+    }
+
+    #karte img {
+        border-radius: 0;
+    }
 }
